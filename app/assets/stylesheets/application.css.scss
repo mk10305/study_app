@@ -8,11 +8,13 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *
  *= require_self
+ *= require bootstrap
  *= require_tree .
  */
-
- @import "bootstrap";
+//@import "bootstrap-sprockets";
+ //@import "bootstrap";
 
  .container {
   margin-left: 135px
@@ -31,7 +33,7 @@ div.nav_item {
   float: left;
 }
 
-.label  {
+.label, .badge {
   a, a:hover, a:focus {
     color: #fff;
     text-decoration: none;
