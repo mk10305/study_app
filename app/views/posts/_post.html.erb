@@ -2,13 +2,14 @@
   <div class='span8 well'>
     <%= render post.categories %>
   
-    <h4><%= link_to post.title, post_path(post.id) %></h4>
+    <h4><%= link_to post.title, post_path(post.id)%></h4>
     <p><%= post.description %></p>
 
     <p>
       <span class='quiet'> posted by: </span>
-      <%= post.creator.username %>
-       <small> at <%= post.created_at %></small>
+      <%= link_to post.creator.username, user_path(post.creator) %> 
+    
+       <small> at <%= display_datetime(post.created_at) %></small>
     </p>
 
     <small>
