@@ -2,7 +2,7 @@ class PostsController < ApplicationController
 
   before_action :set_post, only: [:show, :edit, :update, :vote]
   before_action :require_user, except: [:index, :show]
-
+before_action :authorize, only: [:edit,:update,:destroy]
 
   def index
     @posts = Post.all.sort_by{|x| x.total_votes}.reverse
@@ -65,6 +65,14 @@ end
 
   
 private
+def authorize
+  unless @post.creator == current_user
+    flash[:error]= "You don't have the authorization to see that page"
+    redirect_to root_path
+    return false
+  end
+  end
+
 def post_params
   params.require(:post).permit(:title, :url, :description, category_ids: [])
   end

@@ -1,8 +1,9 @@
 <p class='pull-right'>
 
   <% if logged_in? %>
-
+<% if can_edit?(@post) %>
   [<%= link_to 'edit this post', edit_post_path(@post)%>]
+ <% end %>
 <% end %>
 </p>
 
