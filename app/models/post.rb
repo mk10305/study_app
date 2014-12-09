@@ -15,8 +15,6 @@ class Post < ActiveRecord::Base
 
   def total_votes
     self.up_votes - self.down_votes
-
-
   end
 
 
@@ -29,7 +27,9 @@ class Post < ActiveRecord::Base
   end
 
 
-
+def to_param 
+  self.slug
+end
 
 
   def generate_slug
