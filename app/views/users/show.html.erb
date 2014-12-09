@@ -1,30 +1,36 @@
-<h4> <%= @user.username %> 's Profile </h4>
+ <div class="page-header">
 
-<div class='well' >
+ <h1> <%= @user.username %> 's Profile  </h1>
+</div> 
+
+
+<div class='well' id="user" >
+   
+
   <dl class='dl-horizontal'>
+
     <dt> Username: </dt> 
     <dd> <%= @user.username %> </dd> 
+    <dt> Profile Pic: </dt> 
+    <dd> <%= image_tag "user_pics/#{@user.image}" %> </dd>
+    <dt> Time Zone: </dt>
+    <dd> <%= @user.time_zone %> </dd>
   </dl>
 </div>
 
-  <h5> <%= @user.username %>'s Activity </h5> 
+  <h2> <%= @user.username %>'s Activity </h2> 
+
+  <br/>
+
 
   <ul class='nav nav-tabs'>
-    <li class='<%= 'active' if params[:tab].nil? %>'> 
+    <li class='<%= 'active' if params[:tab].nil? %>'>  <%= link_to "Posts (#{@user.posts.size})", user_path(@user) %> </li>
 
-      <%= link_to "Posts (#{@user.posts.size})", user_path(@user) %> 
-
-    </li>
-
-
-     <li class= '<%= 'active' if params[:tab] == 'comments' %>' >
-
-      <%= link_to "Comments (#{@user.comments.size})", user_path(@user, tab: 'comments') %> 
-
-    </li>
+    <li class= '<%= 'active' if params[:tab] == 'comments' %>' ><%= link_to "Comments (#{@user.comments.size})", user_path(@user, tab: 'comments') %> </li>
 
   </ul>
 
+<br/>
 
 <%if params[:tab].nil? %> 
 

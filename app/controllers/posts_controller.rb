@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  before_action :set_post, only: [:show, :edit, :update, :vote]
+  before_action :set_post, only: [:show, :edit, :update, :vote,:destroy]
   before_action :require_user, except: [:index, :show]
   before_action :authorize, only: [:edit,:update,:destroy]
 
@@ -44,9 +44,17 @@ class PostsController < ApplicationController
     else
       render :edit
     end
-
-
   end
+
+ def destroy
+    @post.destroy
+    respond_to do |format|
+     format.html { redirect_to root_path, notice: 'Your Post was successfully deleted.' }
+     format.json { head :no_content }
+   end
+ end
+
+
 
   def vote
    @vote =  Vote.create(voteable: @post, creator: current_user, vote: params[:vote])

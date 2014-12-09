@@ -1,20 +1,34 @@
-<h4> Please Log in </h4>
+<div class="page-header">
+
+ <h1> Please Log in</h1>
+</div> 
 
 
-<div class='well'>
+     <%= form_tag '/login',:html => { :class => "form-horizontal" } do %>
 
-  <%= form_tag '/login' do %>
-
-  <div class='control-group'>
-    <%= label_tag :username %>
-    <%= text_field_tag :username, params[:username] || '' %>
+  <div class="form-group">
+     <%= label_tag :username , 'Username', class: 'col-sm-2 control-label'%>
+    <div class="col-sm-10">
+          <%= text_field_tag :username, ' ',  class: 'form-control' %>
+    </div>
   </div>
 
-  <div class='control-group'>
-    <%= label_tag :password %>
-    <%= password_field_tag :password, params[:password] || '' %>
+  <div class="form-group">
+ <%= label_tag :password , 'Password', class: 'col-sm-2 control-label'%>
+    <div class="col-sm-10">
+        <%= password_field_tag :password, '', class: 'form-control' %>
+    </div>
   </div>
 
-  <%= submit_tag "Login", class: 'btn btn-success' %>
-  <% end %>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+       <%= submit_tag "Login", class: 'btn btn-default login' %>
+    </div>
+
+
+<% end %>
+
 </div>
+
+

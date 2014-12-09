@@ -6,7 +6,7 @@ PostitTemplate::Application.routes.draw do
   post '/login' , to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
 
-  resources :posts, except: [:destroy] do
+  resources :posts  do
 
     member do 
       post 'vote'

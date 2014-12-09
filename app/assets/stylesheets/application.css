@@ -1,0 +1,125 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *
+ *= require_self
+ *= require bootstrap
+ *= require_tree .
+ */
+
+    body {
+  background-color: #eee;
+  background-image: url(/assets/lined-paper.png);
+
+}
+
+
+
+
+.page-header {
+  font-family: 'Londrina Outline', sans-serif;
+  text-align: center;
+  border-radius: 10px; 
+-moz-border-radius: 10px; 
+-webkit-border-radius: 10px; 
+border: 2px solid #ABDEE1;
+background-color: #ABDEE1;
+background-image: url(http://www.transparenttextures.com/patterns/scribble-light.png);
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+
+
+}
+
+
+h1 {
+  font-size: 60px !important;
+}
+
+
+.vote {
+  background-color: #F69081 !important;
+   margin-right: 2%;
+}
+
+
+.badge {
+
+}
+
+.badge a {
+  color: #fff !important;
+}
+
+i.glyphicon.glyphicon-arrow-up a {
+  color: #fff;
+}
+
+.glyphicon  {
+  font-size: 20px !important;
+}
+
+h4 a {
+  color: #000 !important;
+}
+
+
+a > i {
+  color: #000 !important;
+}
+
+
+
+.title {
+font-family: 'Coming Soon', sans-serif;
+font-size: 25px;
+
+
+}
+
+
+.page-header:first-letter {
+text-transform: uppercase;
+}
+
+.navbar-brand {
+font-family: 'Poiret One', sans-serif;
+  font-size: 35px !important;
+
+}
+
+.vote_number {
+  font-size: 20px !important;
+}
+
+
+.navbar-default {
+ 
+}
+
+.navbar a {
+  color: #333 !important;
+}
+
+.description {
+  margin-top: 10px !important;
+}
+
+
+.field_with_errors { display: inline; }
+
+
+.login {
+  margin-top: 20px;
+}
+
+
+
+
+

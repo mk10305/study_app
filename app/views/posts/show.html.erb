@@ -1,40 +1,58 @@
+<div class="row">
+<div class="col-md-12">
+
+ 
+
+<%= render 'shared/content_title', title: @post.title %>
+ <%= render @post.categories %>
+
+
+<p class="description">
+
+  <%= @post.description %>
+
+</p>
+
 <p class='pull-right'>
 
   <% if logged_in? %>
 <% if can_edit?(@post) %>
   [<%= link_to 'edit this post', edit_post_path(@post)%>]
  <% end %>
+
+
+[<%= link_to 'delete this post', @post, method: :delete, data: { confirm: 'Are you sure?' } %>]
+
 <% end %>
 </p>
 
-   <%= render @post.categories %>
+ <br/>
 
-<%= render 'shared/content_title', title: @post.title %>
-
-
-<p>
-
-  <%= @post.description %>
-
-</p>
-<hr/>
-
-
-<%= form_for [@post, @comment] do |f| %>
+<%= form_for [@post, @comment ], :html => { :class => "form-horizontal" } do |f| %>
 
 <%= render 'shared/errors', obj: @comment %>
 
+<div class="form-group">
+    <%= f.label :body, 'Comment', class: 'col-sm-1 control-label' %>
+    <div class="col-sm-11">
+      <%= f.text_area :body, rows: 3, class: 'form-control' %>
+    </div>
+  </div>
 
-<div class = 'control-group'>
-  <%= f.label :body, 'Leave a Comment' %>
-  <%= f.text_area :body, rows: 3, class: 'span4' %>
-</div>
 
-<%= f.submit "Create Comment", class: "btn btn-primary" %>
+<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+    <%= f.submit "Create Comment", class: "btn btn-default" %>
+    </div>
+
+
 
   <% end %>
 
-  <h5> Comments: </h5>
+
+
+
+  <h2> Comments: </h2>
 
 
   <% @post.comments.each do |comment| %>
@@ -43,3 +61,6 @@
 
 
   <% end %>
+
+</div>
+</div>

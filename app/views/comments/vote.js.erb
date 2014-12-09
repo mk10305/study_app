@@ -1,6 +1,6 @@
 <% if @vote.valid? %>
 
-$("#comment_<%= @comment.id %>_votes").html("<%= @comment.total_votes %> votes")
+$("#comment_<%= @comment.id %>_votes").html("<%= @comment.total_votes %> <span class='glyphicon glyphicon-heart'></span>")
 
 <% else %>
 
