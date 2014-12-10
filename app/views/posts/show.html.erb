@@ -18,10 +18,12 @@
   <% if logged_in? %>
 <% if can_edit?(@post) %>
   [<%= link_to 'edit this post', edit_post_path(@post)%>]
+  [<%= link_to 'delete this post', @post, method: :delete, data: { confirm: 'Are you sure?' } %>]
+
  <% end %>
 
 
-[<%= link_to 'delete this post', @post, method: :delete, data: { confirm: 'Are you sure?' } %>]
+
 
 <% end %>
 </p>
@@ -55,7 +57,7 @@
   <h2> Comments: </h2>
 
 
-  <% @post.comments.each do |comment| %>
+  <% @post.reload.comments.each do |comment| %>
 
   <%= render 'comments/comment', comment: comment, show_post: false %> 
 

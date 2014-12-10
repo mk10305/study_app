@@ -63,7 +63,7 @@ class PostsController < ApplicationController
     format.html do
 
       if @vote.valid? 
-        flash[:notice] = 'Your vote was counted.'
+        flash[:notice] = o'Your vote was counted.'
       else
         flash[:error] = 'You can only vote on a post once'
       end
@@ -91,7 +91,7 @@ def post_params
 end
 
 def set_post
-  @post = Post.find_by slug: params[:id]
+ @post = Post.find_by_slug(params[:id]) rescue nil
 end
 
 end

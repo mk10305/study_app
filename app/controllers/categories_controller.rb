@@ -19,7 +19,7 @@ class CategoriesController < ApplicationController
 
 
 def show
-  @category = Category.find(params[:id])
+  @category = Category.find_by_slug(params[:id]) rescue nil
 end
 
 

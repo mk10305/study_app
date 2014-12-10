@@ -30,7 +30,7 @@ class UsersController < ApplicationController
 
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.find_by_slug(params[:id]) rescue nil
   end
 
   def update
@@ -55,7 +55,7 @@ class UsersController < ApplicationController
 end
 
 def set_user
-  @user = User.find(params[:id])
+  @user = User.find_by_slug(params[:id]) rescue nil
 end
 
 
