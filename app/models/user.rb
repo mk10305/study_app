@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   validates :password, presence: true, on: :create, length: {minimum: 3}
   validates :image, presence: true
 
-  before_save :generate_slug
+  before_create :generate_slug
 
   def to_param
     self.slug

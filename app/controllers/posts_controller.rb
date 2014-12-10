@@ -92,6 +92,10 @@ end
 
 def set_post
  @post = Post.find_by_slug(params[:id]) rescue nil
+ unless @post
+  redirect_to root_path
+  return false
+end
 end
 
 end

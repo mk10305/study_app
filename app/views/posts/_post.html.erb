@@ -19,7 +19,7 @@
   <div class='col-xs-9 col-md-10 well'>
     <%= render post.categories %>
   
-    <h4 class="title"><%= link_to post.title, post_path(post.generate_slug)%></h4>
+    <h4 class="title"><%= link_to post.title, post_path(post.slug)%></h4>
     <p><%= post.description %></p>
 
     <p>

@@ -10,7 +10,7 @@ class Post < ActiveRecord::Base
   validates :description, presence: true
   validates_presence_of :user_id
 
-  before_save :generate_slug
+  before_create :generate_slug
 
 
   def total_votes
@@ -34,11 +34,12 @@ end
 
 def generate_slug
   the_slug = to_slug(self.title)
-  post = Post.find_by_slug(the_slug)
+  post = Post.find_by_slug(the_slug.downcase)
   count = 2
+  
   while post && post != self
     the_slug = append_suffix(the_slug, count)
-   post = Post.find_by_slug(the_slug)
+   post = Post.find_by_slug(the_slug.downcase)
    count += 1
  end
 
