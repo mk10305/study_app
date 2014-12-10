@@ -34,11 +34,11 @@ end
 
 def generate_slug
   the_slug = to_slug(self.title)
-  post = Post.find_by slug: the_slug
+  post = Post.find_by_slug(the_slug)
   count = 2
   while post && post != self
     the_slug = append_suffix(the_slug, count)
-   post = Post.find_by slug: the_slug
+   post = Post.find_by_slug(the_slug)
    count += 1
  end
 
