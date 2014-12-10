@@ -16,7 +16,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 group :doc do
   gem 'sdoc', require: false
 end
- #gem 'quiet_assets'
+ gem 'quiet_assets'
 group :development do
  
   gem 'pry'
