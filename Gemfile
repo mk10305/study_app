@@ -21,12 +21,14 @@ group :development do
   gem 'quiet_assets'
   gem 'pry'
   gem 'sqlite3'
-  gem 'pry'
 end
+
 #gem 'cancancan'
 
 group :production do
   gem 'pg'
   gem 'rails_12factor'
+  gem 'cancancan'
+
 
 end
